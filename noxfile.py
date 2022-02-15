@@ -206,9 +206,6 @@ def publish(session):
 def build_docs(session):
     session.run("python", "-m", "pip", "install", "--upgrade", "pip")
     session.install(*DOC_DEPENDENCIES)
-    session.env[
-        "PIPX__DOC_DEFAULT_PYTHON"
-    ] = "typically the python used to execute pipx"
     session.run("python", "scripts/generate_docs.py")
     session.run("mkdocs", "build")
 

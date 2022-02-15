@@ -64,14 +64,14 @@ PIPX_DESCRIPTION += pipx_wrap(
     optional environment variables:
       PIPX_HOME             Overrides default pipx location. Virtual Environments will be installed to $PIPX_HOME/venvs.
       PIPX_BIN_DIR          Overrides location of app installations. Apps are symlinked or copied here.
-      USE_EMOJI             Overrides emoji behavior. Default value varies based on platform.
       PIPX_DEFAULT_PYTHON   Overrides default python used for commands.
+      USE_EMOJI             Overrides emoji behavior. Default value varies based on platform.
     """,
     subsequent_indent=" " * 24,  # match the indent of argparse options
     keep_newlines=True,
 )
 
-DOC_DEFAULT_PYTHON = os.getenv("PIPX__DOC_DEFAULT_PYTHON", DEFAULT_PYTHON)
+PIPX_DEFAULT_PYTHON = os.getenv("PIPX_DEFAULT_PYTHON", DEFAULT_PYTHON)
 
 INSTALL_DESCRIPTION = textwrap.dedent(
     f"""
@@ -102,7 +102,7 @@ INSTALL_DESCRIPTION = textwrap.dedent(
     overridden by setting the environment variable `PIPX_BIN_DIR`.
 
     The default python executable used to install a package is
-    {DOC_DEFAULT_PYTHON} and can be overridden
+    {DEFAULT_PYTHON} and can be overridden
     by setting the environment variable `PIPX_DEFAULT_PYTHON`.
     """
 )
